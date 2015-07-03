@@ -10,16 +10,27 @@
 
 @implementation GameScene
 
+//-(instancetype)initWithSize:(CGSize)size {
+//    if (self = [super initWithSize:size]) {
+//        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+//        // node can be anything
+//        // image, text, video, shape, emitter, crop, effect
+//        CGSize greenNodeSize = CGSizeMake(100, 100);
+//        SKSpriteNode *greenNode = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:greenNodeSize];
+//        [self addChild:greenNode];
+//    }
+//    return self;
+//}
+
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    
-    myLabel.text = @"Hello, World!";
-    myLabel.fontSize = 65;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
-    
-    [self addChild:myLabel];
+    self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+    // node can be anything
+    // image, text, video, shape, emitter, crop, effect
+    CGSize greenNodeSize = CGSizeMake(100, 100);
+    SKSpriteNode *greenNode = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:greenNodeSize];
+    greenNode.position = CGPointMake(150, 150);
+    [self addChild:greenNode];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
