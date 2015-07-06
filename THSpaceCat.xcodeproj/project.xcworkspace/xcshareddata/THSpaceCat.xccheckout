@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CE99C27B-1CBA-42B7-AC9E-60AB7C03655B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>THSpaceCat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>89F611B4A6A025742993D6BD324DD43F6D2F8B92</key>
+		<string>github.com:FullMetalFist/THSpaceCat.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>THSpaceCat.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>89F611B4A6A025742993D6BD324DD43F6D2F8B92</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:FullMetalFist/THSpaceCat.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>89F611B4A6A025742993D6BD324DD43F6D2F8B92</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>89F611B4A6A025742993D6BD324DD43F6D2F8B92</string>
+			<key>IDESourceControlWCCName</key>
+			<string>THSpaceCat</string>
+		</dict>
+	</array>
+</dict>
+</plist>
