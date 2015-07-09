@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C00CC5B1B4D94BD00EB8394 /* THTitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C00CC5A1B4D94BD00EB8394 /* THTitleScene.m */; };
+		7C00CC5E1B4EF49F00EB8394 /* THGamePlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C00CC5D1B4EF49F00EB8394 /* THGamePlayScene.m */; };
 		7C9F6CDD1B45F43300772183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CDC1B45F43300772183 /* main.m */; };
 		7C9F6CE01B45F43300772183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CDF1B45F43300772183 /* AppDelegate.m */; };
 		7C9F6CE31B45F43300772183 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CE21B45F43300772183 /* GameScene.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		7C00CC591B4D94BD00EB8394 /* THTitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTitleScene.h; sourceTree = "<group>"; };
 		7C00CC5A1B4D94BD00EB8394 /* THTitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTitleScene.m; sourceTree = "<group>"; };
+		7C00CC5C1B4EF49F00EB8394 /* THGamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THGamePlayScene.h; sourceTree = "<group>"; };
+		7C00CC5D1B4EF49F00EB8394 /* THGamePlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THGamePlayScene.m; sourceTree = "<group>"; };
 		7C9F6CD71B45F43300772183 /* THSpaceCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THSpaceCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9F6CDB1B45F43300772183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C9F6CDC1B45F43300772183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,15 +92,13 @@
 		7C9F6CD91B45F43300772183 /* THSpaceCat */ = {
 			isa = PBXGroup;
 			children = (
-				7C9F6CDE1B45F43300772183 /* AppDelegate.h */,
-				7C9F6CDF1B45F43300772183 /* AppDelegate.m */,
 				7C9F6CE11B45F43300772183 /* GameScene.h */,
 				7C9F6CE21B45F43300772183 /* GameScene.m */,
 				7C00CC591B4D94BD00EB8394 /* THTitleScene.h */,
 				7C00CC5A1B4D94BD00EB8394 /* THTitleScene.m */,
+				7C00CC5C1B4EF49F00EB8394 /* THGamePlayScene.h */,
+				7C00CC5D1B4EF49F00EB8394 /* THGamePlayScene.m */,
 				7C9F6CE41B45F43300772183 /* GameScene.sks */,
-				7C9F6CE61B45F43300772183 /* GameViewController.h */,
-				7C9F6CE71B45F43300772183 /* GameViewController.m */,
 				7C9F6CE91B45F43300772183 /* Main.storyboard */,
 				7C9F6CEC1B45F43300772183 /* Images.xcassets */,
 				7C9F6CEE1B45F43300772183 /* LaunchScreen.xib */,
@@ -109,6 +110,10 @@
 		7C9F6CDA1B45F43300772183 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7C9F6CDE1B45F43300772183 /* AppDelegate.h */,
+				7C9F6CDF1B45F43300772183 /* AppDelegate.m */,
+				7C9F6CE61B45F43300772183 /* GameViewController.h */,
+				7C9F6CE71B45F43300772183 /* GameViewController.m */,
 				7C9F6CDB1B45F43300772183 /* Info.plist */,
 				7C9F6CDC1B45F43300772183 /* main.m */,
 			);
@@ -238,6 +243,7 @@
 				7C9F6CE01B45F43300772183 /* AppDelegate.m in Sources */,
 				7C9F6CE31B45F43300772183 /* GameScene.m in Sources */,
 				7C9F6CDD1B45F43300772183 /* main.m in Sources */,
+				7C00CC5E1B4EF49F00EB8394 /* THGamePlayScene.m in Sources */,
 				7C00CC5B1B4D94BD00EB8394 /* THTitleScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
