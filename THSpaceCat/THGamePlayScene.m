@@ -7,6 +7,9 @@
 //
 
 #import "THGamePlayScene.h"
+#import "THMachineNode.h"
+#import "THSpaceCatNode.h"
+#import "THProjectileNode.h"
 
 @implementation THGamePlayScene
 
@@ -15,14 +18,35 @@
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:background];
     
-    SKSpriteNode *machine = [SKSpriteNode spriteNodeWithImageNamed:@"machine_1"];
-    machine.position  = CGPointMake(CGRectGetMidX(self.frame), 25);
-    machine.anchorPoint = CGPointMake(0.5, 0);
-    [self addChild:machine];
+    THMachineNode *machine = [THMachineNode machineAtPosition:CGPointMake(CGRectGetMidX(self.frame), 40)];
+    [self addChild:machine]; //CGPointMake(CGRectGetMidX(self.frame), 40)
+    
+    THSpaceCatNode *spaceCat = [THSpaceCatNode spaceCatAtPosition:CGPointMake(machine.position.x, machine.position.y - 2)];
+    [self addChild:spaceCat];
 }
 
 - (void) update:(NSTimeInterval)currentTime {
     NSLog(@"%f", fmod(currentTime, 60));
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    for (UITouch *touch in touches) {
+        CGPoint position = [touch locationInNode:self];
+        [self shootProjectileTowardsPosition:position];
+    }
+}
+
+- (void)shootProjectileTowardsPosition:(CGPoint)position {
+    THSpaceCatNode *spaceCat = (THSpaceCatNode *)[self childNodeWithName:@"SpaceCat"];
+    [spaceCat performTap];
+    
+    THMachineNode *machine = (THMachineNode *)[self childNodeWithName:@"Machine"];
+    
+    THProjectileNode *projectile = [THProjectileNode projectileAtPosition:CGPointMake(machine.position.x, machine.position.y + machine.frame.size.height - 15)];
+    
+    [self addChild:projectile];
+    [projectile moveTowardsPosition:position];
 }
 
 @end
