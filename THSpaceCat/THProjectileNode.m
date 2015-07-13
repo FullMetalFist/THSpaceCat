@@ -25,6 +25,9 @@
 - (void) setupPhysicsBody {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.affectedByGravity = NO;
+    self.physicsBody.categoryBitMask = THCollisionCategoryProjectile;
+    self.physicsBody.collisionBitMask = 0;      // doesn't collide with anything
+    self.physicsBody.contactTestBitMask = THCollisionCategoryEnemy;
 }
 
 - (void) createAnimation {

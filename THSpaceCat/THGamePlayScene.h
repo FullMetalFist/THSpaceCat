@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface THGamePlayScene : SKScene
+@interface THGamePlayScene : SKScene <SKPhysicsContactDelegate>
 
 @end

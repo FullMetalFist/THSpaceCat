@@ -12,6 +12,7 @@
 #import "THProjectileNode.h"
 #import "THSpaceDogNode.h"
 #import "THGroundNode.h"
+#import "THUtil.h"
 
 @implementation THGamePlayScene
 
@@ -28,12 +29,14 @@
     [self addSpaceDog];
     
     self.physicsWorld.gravity = CGVectorMake(0, -9.8);
-    THGroundNode *ground = [THGroundNode groundWithSize:CGSizeMake(self.frame.size.width, 22)];
+    self.physicsWorld.contactDelegate = self;
+    
+    THGroundNode *ground = [THGroundNode groundWithSize:CGSizeMake(self.frame.size.width, 40)];
     [self addChild:ground];
 }
 
 - (void) update:(NSTimeInterval)currentTime {
-    NSLog(@"%f", fmod(currentTime, 60));
+//    NSLog(@"%f", fmod(currentTime, 60));
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -64,6 +67,30 @@
     THSpaceDogNode *spaceDogB = [THSpaceDogNode spaceDogOfType:THSpaceDogTypeB];
     spaceDogB.position = CGPointMake(200, 300);
     [self addChild:spaceDogB];
+}
+
+- (void) didBeginContact:(SKPhysicsContact *)contact {
+    SKPhysicsBody *firstBody, *secondBody;
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    } else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+    if (firstBody.categoryBitMask == THCollisionCategoryEnemy && secondBody.categoryBitMask == THCollisionCategoryProjectile) {
+        NSLog(@"BLAM!");
+        THSpaceDogNode *spaceDog = (THSpaceDogNode *)firstBody.node;
+        THProjectileNode *projectileNode = (THProjectileNode *)secondBody.node;
+        [spaceDog removeFromParent];
+        [projectileNode removeFromParent];
+        
+    } else if (firstBody.categoryBitMask == THCollisionCategoryEnemy && secondBody.categoryBitMask == THCollisionCategoryGround) {
+        NSLog(@"Hit ground!");
+        THSpaceDogNode *spaceDog = (THSpaceDogNode *)firstBody.node;
+        [spaceDog removeFromParent];
+    }
 }
 
 @end
