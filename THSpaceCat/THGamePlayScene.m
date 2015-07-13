@@ -10,6 +10,8 @@
 #import "THMachineNode.h"
 #import "THSpaceCatNode.h"
 #import "THProjectileNode.h"
+#import "THSpaceDogNode.h"
+#import "THGroundNode.h"
 
 @implementation THGamePlayScene
 
@@ -23,6 +25,11 @@
     
     THSpaceCatNode *spaceCat = [THSpaceCatNode spaceCatAtPosition:CGPointMake(machine.position.x, machine.position.y - 2)];
     [self addChild:spaceCat];
+    [self addSpaceDog];
+    
+    self.physicsWorld.gravity = CGVectorMake(0, -9.8);
+    THGroundNode *ground = [THGroundNode groundWithSize:CGSizeMake(self.frame.size.width, 22)];
+    [self addChild:ground];
 }
 
 - (void) update:(NSTimeInterval)currentTime {
@@ -47,6 +54,16 @@
     
     [self addChild:projectile];
     [projectile moveTowardsPosition:position];
+}
+
+- (void)addSpaceDog {
+    THSpaceDogNode *spaceDogA = [THSpaceDogNode spaceDogOfType:THSpaceDogTypeA];
+    spaceDogA.position = CGPointMake(100, 300);
+    [self addChild:spaceDogA];
+    
+    THSpaceDogNode *spaceDogB = [THSpaceDogNode spaceDogOfType:THSpaceDogTypeB];
+    spaceDogB.position = CGPointMake(200, 300);
+    [self addChild:spaceDogB];
 }
 
 @end

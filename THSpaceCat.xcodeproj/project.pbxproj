@@ -14,6 +14,8 @@
 		7C00CC661B50307600EB8394 /* THSpaceCatNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C00CC651B50307600EB8394 /* THSpaceCatNode.m */; };
 		7C00CC691B50412E00EB8394 /* THProjectileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C00CC681B50412E00EB8394 /* THProjectileNode.m */; };
 		7C00CC6D1B504CB300EB8394 /* THUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C00CC6C1B504CB300EB8394 /* THUtil.m */; };
+		7C4E88641B541A0100C35D76 /* THSpaceDogNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E88631B541A0100C35D76 /* THSpaceDogNode.m */; };
+		7C4E88671B5424F800C35D76 /* THGroundNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E88661B5424F800C35D76 /* THGroundNode.m */; };
 		7C9F6CDD1B45F43300772183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CDC1B45F43300772183 /* main.m */; };
 		7C9F6CE01B45F43300772183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CDF1B45F43300772183 /* AppDelegate.m */; };
 		7C9F6CE31B45F43300772183 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CE21B45F43300772183 /* GameScene.m */; };
@@ -49,6 +51,10 @@
 		7C00CC681B50412E00EB8394 /* THProjectileNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THProjectileNode.m; sourceTree = "<group>"; };
 		7C00CC6B1B504CB300EB8394 /* THUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THUtil.h; sourceTree = "<group>"; };
 		7C00CC6C1B504CB300EB8394 /* THUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THUtil.m; sourceTree = "<group>"; };
+		7C4E88621B541A0100C35D76 /* THSpaceDogNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSpaceDogNode.h; sourceTree = "<group>"; };
+		7C4E88631B541A0100C35D76 /* THSpaceDogNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSpaceDogNode.m; sourceTree = "<group>"; };
+		7C4E88651B5424F800C35D76 /* THGroundNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THGroundNode.h; sourceTree = "<group>"; };
+		7C4E88661B5424F800C35D76 /* THGroundNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THGroundNode.m; sourceTree = "<group>"; };
 		7C9F6CD71B45F43300772183 /* THSpaceCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THSpaceCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9F6CDB1B45F43300772183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C9F6CDC1B45F43300772183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,10 +119,14 @@
 				7C00CC5A1B4D94BD00EB8394 /* THTitleScene.m */,
 				7C00CC5C1B4EF49F00EB8394 /* THGamePlayScene.h */,
 				7C00CC5D1B4EF49F00EB8394 /* THGamePlayScene.m */,
+				7C4E88651B5424F800C35D76 /* THGroundNode.h */,
+				7C4E88661B5424F800C35D76 /* THGroundNode.m */,
 				7C00CC6B1B504CB300EB8394 /* THUtil.h */,
 				7C00CC6C1B504CB300EB8394 /* THUtil.m */,
 				7C00CC671B50412E00EB8394 /* THProjectileNode.h */,
 				7C00CC681B50412E00EB8394 /* THProjectileNode.m */,
+				7C4E88621B541A0100C35D76 /* THSpaceDogNode.h */,
+				7C4E88631B541A0100C35D76 /* THSpaceDogNode.m */,
 				7C00CC611B502A1700EB8394 /* THMachineNode.h */,
 				7C00CC621B502A1700EB8394 /* THMachineNode.m */,
 				7C00CC641B50307600EB8394 /* THSpaceCatNode.h */,
@@ -265,6 +275,7 @@
 			files = (
 				7C9F6CE81B45F43300772183 /* GameViewController.m in Sources */,
 				7C00CC661B50307600EB8394 /* THSpaceCatNode.m in Sources */,
+				7C4E88671B5424F800C35D76 /* THGroundNode.m in Sources */,
 				7C00CC631B502A1700EB8394 /* THMachineNode.m in Sources */,
 				7C9F6CE01B45F43300772183 /* AppDelegate.m in Sources */,
 				7C9F6CE31B45F43300772183 /* GameScene.m in Sources */,
@@ -273,6 +284,7 @@
 				7C00CC5E1B4EF49F00EB8394 /* THGamePlayScene.m in Sources */,
 				7C00CC5B1B4D94BD00EB8394 /* THTitleScene.m in Sources */,
 				7C00CC691B50412E00EB8394 /* THProjectileNode.m in Sources */,
+				7C4E88641B541A0100C35D76 /* THSpaceDogNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
