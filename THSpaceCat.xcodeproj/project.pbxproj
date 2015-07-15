@@ -33,6 +33,10 @@
 		7C9F6CED1B45F43300772183 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9F6CEC1B45F43300772183 /* Images.xcassets */; };
 		7C9F6CF01B45F43300772183 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9F6CEE1B45F43300772183 /* LaunchScreen.xib */; };
 		7C9F6CFC1B45F43300772183 /* THSpaceCatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F6CFB1B45F43300772183 /* THSpaceCatTests.m */; };
+		7CAFBADC1B56AED6001285FA /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFBADA1B56AED6001285FA /* Explosion.sks */; };
+		7CAFBADD1B56AED6001285FA /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFBADB1B56AED6001285FA /* spark.png */; };
+		7CAFBAE01B56B5CB001285FA /* THHudNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFBADF1B56B5CB001285FA /* THHudNode.m */; };
+		7CAFBAE31B56CF03001285FA /* THGameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFBAE21B56CF03001285FA /* THGameOverNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,12 @@
 		7C9F6CF51B45F43300772183 /* THSpaceCatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THSpaceCatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9F6CFA1B45F43300772183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C9F6CFB1B45F43300772183 /* THSpaceCatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSpaceCatTests.m; sourceTree = "<group>"; };
+		7CAFBADA1B56AED6001285FA /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		7CAFBADB1B56AED6001285FA /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		7CAFBADE1B56B5CB001285FA /* THHudNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THHudNode.h; sourceTree = "<group>"; };
+		7CAFBADF1B56B5CB001285FA /* THHudNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THHudNode.m; sourceTree = "<group>"; };
+		7CAFBAE11B56CF03001285FA /* THGameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THGameOverNode.h; sourceTree = "<group>"; };
+		7CAFBAE21B56CF03001285FA /* THGameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THGameOverNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +158,16 @@
 				7C00CC5F1B4F054500EB8394 /* Sprites.atlas */,
 				7C9F6CE11B45F43300772183 /* GameScene.h */,
 				7C9F6CE21B45F43300772183 /* GameScene.m */,
+				7CAFBADA1B56AED6001285FA /* Explosion.sks */,
+				7CAFBADB1B56AED6001285FA /* spark.png */,
 				7C00CC591B4D94BD00EB8394 /* THTitleScene.h */,
 				7C00CC5A1B4D94BD00EB8394 /* THTitleScene.m */,
 				7C00CC5C1B4EF49F00EB8394 /* THGamePlayScene.h */,
 				7C00CC5D1B4EF49F00EB8394 /* THGamePlayScene.m */,
+				7CAFBAE11B56CF03001285FA /* THGameOverNode.h */,
+				7CAFBAE21B56CF03001285FA /* THGameOverNode.m */,
+				7CAFBADE1B56B5CB001285FA /* THHudNode.h */,
+				7CAFBADF1B56B5CB001285FA /* THHudNode.m */,
 				7C4E88651B5424F800C35D76 /* THGroundNode.h */,
 				7C4E88661B5424F800C35D76 /* THGroundNode.m */,
 				7C00CC6B1B504CB300EB8394 /* THUtil.h */,
@@ -287,8 +303,10 @@
 				7C4E886F1B55809300C35D76 /* Laser.caf in Resources */,
 				7C9F6CF01B45F43300772183 /* LaunchScreen.xib in Resources */,
 				7C9F6CED1B45F43300772183 /* Images.xcassets in Resources */,
+				7CAFBADD1B56AED6001285FA /* spark.png in Resources */,
 				7C9F6CE51B45F43300772183 /* GameScene.sks in Resources */,
 				7C4E88741B55827000C35D76 /* GameOver.mp3 in Resources */,
+				7CAFBADC1B56AED6001285FA /* Explosion.sks in Resources */,
 				7C4E886D1B55809300C35D76 /* Damage.caf in Resources */,
 				7C9F6CEB1B45F43300772183 /* Main.storyboard in Resources */,
 				7C00CC601B4F054500EB8394 /* Sprites.atlas in Resources */,
@@ -315,6 +333,7 @@
 			files = (
 				7C9F6CE81B45F43300772183 /* GameViewController.m in Sources */,
 				7C00CC661B50307600EB8394 /* THSpaceCatNode.m in Sources */,
+				7CAFBAE01B56B5CB001285FA /* THHudNode.m in Sources */,
 				7C4E88671B5424F800C35D76 /* THGroundNode.m in Sources */,
 				7C00CC631B502A1700EB8394 /* THMachineNode.m in Sources */,
 				7C9F6CE01B45F43300772183 /* AppDelegate.m in Sources */,
@@ -323,6 +342,7 @@
 				7C9F6CDD1B45F43300772183 /* main.m in Sources */,
 				7C00CC5E1B4EF49F00EB8394 /* THGamePlayScene.m in Sources */,
 				7C00CC5B1B4D94BD00EB8394 /* THTitleScene.m in Sources */,
+				7CAFBAE31B56CF03001285FA /* THGameOverNode.m in Sources */,
 				7C00CC691B50412E00EB8394 /* THProjectileNode.m in Sources */,
 				7C4E88641B541A0100C35D76 /* THSpaceDogNode.m in Sources */,
 			);

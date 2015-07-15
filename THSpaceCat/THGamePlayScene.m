@@ -13,6 +13,8 @@
 #import "THSpaceDogNode.h"
 #import "THGroundNode.h"
 #import "THUtil.h"
+#import "THHudNode.h"
+#import "THGameOverNode.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface THGamePlayScene()
@@ -29,6 +31,10 @@
 
 @property (nonatomic) AVAudioPlayer *backgroundMusic;
 
+@property (nonatomic) BOOL gameOver;
+@property (nonatomic) BOOL restart;
+@property (nonatomic) BOOL gameOverDisplayed;
+
 @end
 
 @implementation THGamePlayScene
@@ -39,6 +45,9 @@
     self.totalGameTime = 0;
     self.minSpeed = THSpaceDogMinSpeed;
     self.addEnemyTimeInterval = 1.5;
+    self.restart = NO;
+    self.gameOver = NO;
+    self.gameOverDisplayed = NO;
     
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background_1"];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -56,6 +65,10 @@
     THGroundNode *ground = [THGroundNode groundWithSize:CGSizeMake(self.frame.size.width, 40)];
     [self addChild:ground];
     [self setupSounds];
+    
+    THHudNode *hud = [THHudNode hudAtPosition:CGPointMake(0, self.frame.size.height - 20) inFrame:self.frame];
+    [self addChild:hud];
+    
     [self.backgroundMusic play];
 }
 
@@ -66,7 +79,7 @@
         self.totalGameTime += currentTime - self.lastUpdateTimeInterval;
     }
     
-    if (self.timeSinceEnemyAdded > 1.0) {
+    if (self.timeSinceEnemyAdded > self.addEnemyTimeInterval && !self.gameOver) {
         [self addSpaceDog];
         self.timeSinceEnemyAdded = 0;
     }
@@ -87,14 +100,35 @@
         self.addEnemyTimeInterval = 1.0;
         self.minSpeed = -100;
     }
+    
+    if (self.gameOver && !self.gameOverDisplayed) {
+        [self performGameOver];
+    }
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    for (UITouch *touch in touches) {
-        CGPoint position = [touch locationInNode:self];
-        [self shootProjectileTowardsPosition:position];
+    if (!self.gameOver) {
+        for (UITouch *touch in touches) {
+            CGPoint position = [touch locationInNode:self];
+            [self shootProjectileTowardsPosition:position];
+        }
+    } else if (self.restart) {
+        for (SKNode *node in [self children]) {
+            [node removeFromParent];    // safety measure to create a clean screen
+        }
+        THGamePlayScene *scene = [THGamePlayScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:scene];
     }
+    
+    
+}
+
+- (void) performGameOver {
+    THGameOverNode *gameOver = [THGameOverNode gameOverAtPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
+    [self addChild:gameOver];
+    self.restart = YES;
+    self.gameOverDisplayed = YES;
 }
 
 - (void) setupSounds {
@@ -150,6 +184,7 @@
         THProjectileNode *projectileNode = (THProjectileNode *)secondBody.node;
         
         if ([spaceDog isDamaged]) {
+            [self addPoints:THPointsPerHit];
             [self runAction:self.explodeSFX];
             [spaceDog removeFromParent];
             [projectileNode removeFromParent];
@@ -163,7 +198,18 @@
         [self runAction:self.damageSFX];
         [spaceDog removeFromParent];
         [self createDebrisAtPosition:contact.contactPoint];
+        [self loseLife];
     }
+}
+
+- (void) addPoints:(NSInteger)points {
+    THHudNode *hud = (THHudNode *)[self childNodeWithName:@"hud"];
+    [hud addPoints:points];
+}
+
+- (void) loseLife {
+    THHudNode *hud = (THHudNode *)[self childNodeWithName:@"hud"];
+    self.gameOver = [hud loseLife];
 }
 
 - (void) createDebrisAtPosition:(CGPoint)position {
@@ -188,6 +234,15 @@
             [debris removeFromParent];
         }];
     }
+    
+    NSString *explosionPath = [[NSBundle mainBundle] pathForResource:@"Explosion" ofType:@"sks"];
+    SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
+    explosion.position = position;
+    [self addChild:explosion];
+    
+    [explosion runAction:[SKAction waitForDuration:2.0] completion:^{
+        [explosion removeFromParent];
+    }];
 }
 
 @end
