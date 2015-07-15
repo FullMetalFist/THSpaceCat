@@ -23,4 +23,25 @@
     return gameOver;
 }
 
+- (void) performAnimation {
+    SKLabelNode *label = (SKLabelNode *)[self childNodeWithName:@"GameOver"];
+    label.xScale = 0;
+    label.yScale = 0;
+    SKAction *scaleUp = [SKAction scaleTo:1.2f duration:0.75f];
+    SKAction *scaleDown = [SKAction scaleTo:0.9f duration:0.25f];
+    
+    SKAction *runAction = [SKAction runBlock:^{
+        SKLabelNode *touchToRestart = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
+        touchToRestart.text = @"Touch to Restart!";
+        touchToRestart.fontSize = 24;
+        touchToRestart.position = CGPointMake(label.position.x, label.position.y - 40);
+        [self addChild:touchToRestart];
+    }];
+    
+    SKAction *scaleSequence = [SKAction sequence:@[scaleUp, scaleDown, runAction]];
+    [label runAction:scaleSequence];
+    
+    
+}
+
 @end

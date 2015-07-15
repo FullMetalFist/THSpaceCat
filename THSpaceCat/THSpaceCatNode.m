@@ -19,6 +19,7 @@
 + (instancetype)spaceCatAtPosition:(CGPoint)position {
     THSpaceCatNode *spaceCat = [self spriteNodeWithImageNamed:@"spacecat_1"];
     spaceCat.position = position;
+    spaceCat.zPosition = 9;
     spaceCat.anchorPoint = CGPointMake(0.5, 0);
     spaceCat.name = @"SpaceCat";
     
